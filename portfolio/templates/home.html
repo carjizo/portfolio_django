@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/profile.jpg' %}" class="img-fluid">
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Carlos Jiménez</strong></h1>
+        <h3>I am a Python FullStack Developer</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque natus, 
+            similique eum culpa fuga aut exercitationem veniam illo mollitia eligendi ipsam dignissimos 
+            molestias officia itaque asperiores voluptates deleniti blanditiis modi voluptas magnam 
+            ipsa, eos odit. Nostrum quisquam ad libero, quibusdam iure corrupti pariatur tempora vitae 
+            mollitia nihil cum ea laboriosam quas similique iste explicabo perferendis, dolor deserunt 
+            molestiae ex! Dolorem explicabo fugiat itaque repellendus nobis voluptas a nihil voluptatibus 
+            porro amet. Iste sunt labore ut explicabo eveniet deleniti expedita! Suscipit quia quae porro dolorem 
+            aspernatur amet, molestiae vero incidunt maiores ut, explicabo, aliquam quisquam quo quas nam 
+            dolores quibusdam numquam.</p>
+        <a href="{% static 'portfolio/Profile.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
+</header>
+
+<!-- Porfolio Section -->
+<div class="row my-4 text-center">
+
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p>
+  
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.image.url }}" class="card-img-top" />
+    
+            <div class="card-body">
+    
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+        
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the
+                    Project</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+  
+  
+{% endblock %}
+    
+    
